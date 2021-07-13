@@ -1,0 +1,11 @@
+algolia-javascript:
+  js:
+    https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js : { type: external }
+    https://cdn.jsdelivr.net/npm/instantsearch.js@4 : { type: external }
+    js/algolia.js: {preprocess: false}
+  dependencies:
+    - core/drupalSettings
+  css:
+    theme:
+      css/algolia.css: {}
+      https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css: { type: external, minified : true }

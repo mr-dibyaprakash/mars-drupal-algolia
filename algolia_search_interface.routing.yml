@@ -1,0 +1,7 @@
+algolia.settings_form:
+  path: '/admin/algolia/configurations'
+  defaults:
+    _form: Drupal\algolia_search_interface\Form\AlgoliaSettingsForm
+    _title: 'Algolia configurations'
+  requirements:
+    _permission: 'administer configurations'

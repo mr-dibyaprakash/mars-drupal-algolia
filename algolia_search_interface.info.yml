@@ -1,0 +1,8 @@
+name: Algolia Search Interface
+description: 'Instant search javascript'
+core_version_requirement: '^8.8 || ^9'
+package: Search
+type: module
+
+project: 'algolia_search_interface'
+

@@ -1,0 +1,6 @@
+algolia_search_interface.config:
+  title: 'Algolia configurations'
+  description: 'Algolia configurations'
+  route_name: algolia.settings_form
+  parent: system.admin_config_search
+  weight: 5
