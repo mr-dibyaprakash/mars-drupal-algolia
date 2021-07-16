@@ -3,6 +3,7 @@
 namespace Drupal\algolia_search_interface\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Provides a 'Algolia Search Interface' Block.
@@ -27,5 +28,6 @@ class InstantSearchBlock extends BlockBase {
       ],
     ];
   }
+
 
 }

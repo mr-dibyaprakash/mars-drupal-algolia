@@ -16,9 +16,9 @@ For indexing there is an existing module
 (https://www.drupal.org/project/search_api_algolia).
 
 Currently supported:
- * A form to save algolia settings
- * cdn libraries already included in the module
- * the search interface which can be customized by overriding the library
+ * A form to save algolia configurations; the Index name, App Id, Api Key     and template are required fields. (Fully customizable via configurations)
+ * Cdn libraries already included in the module
+ * the search interface which can be customized by overriding the library if necessary
 
 REQUIREMENTS
 ------------
@@ -37,7 +37,7 @@ MAINTAINERS
 Current D8/D9 maintainers:
 Moutdin Muckdoombukus - https://www.drupal.org/user/3544235
 
-The initial Drupal 8 development of this module has been sponsored by Esokia
+This module has been sponsored by Esokia.
 
 DEPENDENCIES
 ------------

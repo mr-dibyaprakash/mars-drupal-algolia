@@ -3,49 +3,43 @@
 const indexname = drupalSettings.algolia.config.indexname;
 const appId = drupalSettings.algolia.config.appId;
 const apiKey = drupalSettings.algolia.config.apiKey;
+const template = drupalSettings.algolia.config.template;
+const pagination = drupalSettings.algolia.config.pagination;
 
-if(indexname && appId && apiKey){
+if(indexname && appId && apiKey && template){
   
   const search = instantsearch({
     indexName: indexname,
     searchClient: algoliasearch(appId, apiKey),
   });
   
+
   search.addWidgets([
     instantsearch.widgets.searchBox({
       container: '#searchbox',
     }),
-    instantsearch.widgets.clearRefinements({
-      container: '#clear-refinements',
-    }),
-    instantsearch.widgets.refinementList({
-      container: '#brand-list',
-      attribute: 'brand',
-    }),
     instantsearch.widgets.hits({
       container: '#hits',
       templates: {
-        item: `
-          <div>
-            <img src="{{image}}" align="left" alt="{{name}}" />
-            <div class="hit-name">
-              {{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}
-            </div>
-            <div class="hit-description">
-              {{#helpers.highlight}}{ "attribute": "description" }{{/helpers.highlight}}
-            </div>
-            <div class="hit-price">\${{price}}</div>
-          </div>
-        `,
+        item: template,
       },
     }),
-    instantsearch.widgets.pagination({
-      container: '#pagination',
-    }),
   ]);
-  
+
+  /**
+   * check to enable pagination
+   * pagination limit configurable on algolia account
+   */
+  if(pagination && pagination != 0){
+    search.addWidgets([
+      instantsearch.widgets.pagination({
+        container: '#pagination',
+      })
+    ]);
+  }
   search.start();
-}
-else{
+
+}else
+{
   throw "Algolia settings missing";
 }

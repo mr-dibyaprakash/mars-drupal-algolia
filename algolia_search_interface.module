@@ -12,7 +12,9 @@ function algolia_search_interface_preprocess_html(&$variables) {
   $variables['#attached']['drupalSettings']['algolia']['config']['indexname'] = $algolia_settings['indexname'];
   $variables['#attached']['drupalSettings']['algolia']['config']['appId'] = $algolia_settings['appId'];
   $variables['#attached']['drupalSettings']['algolia']['config']['apiKey'] = $algolia_settings['apiKey'];
-
+  $variables['#attached']['drupalSettings']['algolia']['config']['template'] = $algolia_settings['template'];
+  $variables['#attached']['drupalSettings']['algolia']['config']['pagination'] = $algolia_settings['pagination'];
+  
 }
 
 /**

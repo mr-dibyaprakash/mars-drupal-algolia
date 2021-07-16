@@ -7,5 +7,4 @@ algolia-javascript:
     - core/drupalSettings
   css:
     theme:
-      css/algolia.css: {}
       https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css: { type: external, minified : true }
