@@ -12,8 +12,6 @@ function algolia_search_interface_preprocess_html(&$variables) {
   $variables['#attached']['drupalSettings']['algolia']['config']['indexname'] = $algolia_settings['indexname'];
   $variables['#attached']['drupalSettings']['algolia']['config']['appId'] = $algolia_settings['appId'];
   $variables['#attached']['drupalSettings']['algolia']['config']['apiKey'] = $algolia_settings['apiKey'];
-  $variables['#attached']['drupalSettings']['algolia']['config']['template'] = $algolia_settings['template'];
-  $variables['#attached']['drupalSettings']['algolia']['config']['pagination'] = $algolia_settings['pagination'];
   
 }
 
@@ -24,4 +22,12 @@ function algolia_search_interface_theme($existing, $type, $theme, $path){
   return [
     'instantsearchblock' => [],
   ];
+}
+
+/**
+ * Implements hook_custom_theme
+ */
+function algolia_search_interface_page_attachments(array &$page)
+{
+  $page['#attached']['library'][] = 'algolia_search_interface/main.css';
 }

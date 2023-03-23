@@ -1,0 +1,36 @@
+.ais-SearchBox-input {
+  width: 100% !important;
+  border-radius: 50px !important;
+}
+
+.ais-Hits-list {
+  display: flex !important;
+  flex-direction: column !important;
+  max-width: 71em !important;
+  margin-top: 5px !important;
+  border-radius: 20px !important;
+  margin-left: 2rem !important;
+}
+
+.ais-Hits-item {
+  width: calc(25% + 38rem) !important;
+}
+
+.title {
+  color: rgb(7, 45, 162) !important;
+}
+
+.site-header__initial,
+.social-bar,
+#toolbar-administration,
+#toolbar-item-administration-tray {
+  display: none !important;
+}
+
+.main-content__container {
+  padding-block-start: 0px !important;
+}
+
+.node--view-mode-teaser h2 a {
+  color: rgb(0, 0, 0) !important;
+}

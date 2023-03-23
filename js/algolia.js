@@ -1,45 +1,29 @@
-/**  global javascript instantsearch algoliasearch */
-
 const indexname = drupalSettings.algolia.config.indexname;
 const appId = drupalSettings.algolia.config.appId;
 const apiKey = drupalSettings.algolia.config.apiKey;
-const template = drupalSettings.algolia.config.template;
-const pagination = drupalSettings.algolia.config.pagination;
 
-if(indexname && appId && apiKey && template){
-  
+if (indexname && appId && apiKey) {
   const search = instantsearch({
     indexName: indexname,
     searchClient: algoliasearch(appId, apiKey),
   });
-  
 
   search.addWidgets([
     instantsearch.widgets.searchBox({
-      container: '#searchbox',
+      container: "#searchbox",
     }),
     instantsearch.widgets.hits({
-      container: '#hits',
+      container: "#hits",
       templates: {
-        item: template,
+        item: `
+      	<h3 class="title">{{{_highlightResult.title.value}}}</h3>
+      	<p class="body">{{{_highlightResult.body.value}}}</p>
+        <span class="brand"> <b>Brand Content:</b> {{{field_brand_content}}}</span>
+      	`,
       },
     }),
   ]);
-
-  /**
-   * check to enable pagination
-   * pagination limit configurable on algolia account
-   */
-  if(pagination && pagination != 0){
-    search.addWidgets([
-      instantsearch.widgets.pagination({
-        container: '#pagination',
-      })
-    ]);
-  }
   search.start();
-
-}else
-{
+} else {
   throw "Algolia settings missing";
 }
